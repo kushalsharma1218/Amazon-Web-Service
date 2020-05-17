@@ -1,0 +1,78 @@
+<html>
+<head>
+<script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+<script type="text/javascript" src="lib/url-template/url-template.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+<script type="text/javascript" src="apigClient.js"></script>
+<script>
+function insertData(){
+	var email=document.getElementById('email').value;
+	var name=document.getElementById('name').value;
+	var vn=document.getElementById('vehicle').value;
+	var con=document.getElementById('contact').value;
+	var pass=document.getElementById('pass').value;
+
+console.log(email);
+console.log(name);
+console.log(email);
+	var apigClient = apigClientFactory.newClient();
+	var body = {
+ 	"emailid" : email,
+	"Contact" : con,
+	"Name"    : name,
+	"Number" : vn,
+	"Password" : pass
+	};
+	apigClient.userPost(null, body)
+    .then(function(result){
+    }).catch( function(result){
+    });
+	
+
+}
+</script>
+<link rel="stylesheet" type="text/css" href="xyz1.css"> 
+</head>
+<body>
+<div id="data">
+<center>
+<table cellpadding="15">
+<form action="Login1">
+<tr>
+<th colspan="2">Enter Name</th>
+<td><input type="text" id="name" placeHolder="Enter Name" name="uname"></td>
+</tr>
+
+<tr>
+<th colspan="2">Enter Email</th>
+<td><input type="text" id="email" placeHolder="Enter Email" name="email"></td>
+</tr>
+<tr>
+<th colspan="2">Enter Vehicle Number</th>
+<td><input type="text" id="vehicle" placeHolder="Enter password" name="upass"></td>
+</tr>
+<tr>
+<th colspan="2">Enter Contact</th>
+<td><input type="text" id="contact" placeHolder="Enter Contact" name="upass"></td>
+</tr>
+<tr>
+<th colspan="2">Enter Password</th>
+<td><input type="text" id="pass" placeHolder="Enter password" name="upass"></td>
+</tr>
+<tr>
+<th align="center" colspan="4"><input type="Button" class="B" onclick="insertData()" value="Register">&ensp;&ensp;<a href="Login.html"align="right" class="B" style="text-decoration:none;"><i>LOGIN</a></th>
+</tr>
+</form>
+
+</table>
+</center>
+</div>
+</body>
+</html>
